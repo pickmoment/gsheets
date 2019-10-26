@@ -4,7 +4,7 @@ import pickle
 import os.path
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from .models.gsheets import GSheets
+from .gsheets import GSheets
 
 def installed_app_creds(client_secrets_file):
     scope = [ 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.file', 'https://www.googleapis.com/auth/spreadsheets']
