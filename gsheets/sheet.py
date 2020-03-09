@@ -11,6 +11,8 @@ class Sheet():
         range_text = [self.title]
         if cell_range:
             range_text.append(cell_range)
+        else:
+            range_text.append("A:Z")
         result = self.__client.values().get(spreadsheetId=self.__doc_id, range='!'.join(range_text)).execute()
         data = result.get('values', [])
         self.headers = {} if not data else {d: i for i, d in enumerate(data[0])} if has_headers else {}
@@ -44,6 +46,8 @@ class Sheet():
         }
         if cell_range:
             range_text.append(cell_range)
+        else:
+            range_text.append("A:Z")
         result = self.__client.values().update(spreadsheetId=self.__doc_id, range='!'.join(range_text), valueInputOption=value_option, body=body).execute()
 
     def get(self, row, col):

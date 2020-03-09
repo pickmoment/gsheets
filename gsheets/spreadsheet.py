@@ -34,4 +34,7 @@ class SpreadSheet():
         }
         self.__client.batchUpdate(spreadsheetId=self.doc_id, body=body).execute()
         self.sheets.remove(sheet)
+
+    def get_sheet(self, title):
+        return next((sheet for sheet in self.sheets if sheet.title == title), None)
         
